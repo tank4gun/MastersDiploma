@@ -1,0 +1,6 @@
+[core]
+    remote = my_remote
+['remote "storage"']
+    url = gdrive://14I1EgcxsDXKIt1TxiOteAmFaXeSsfyC3
+['remote "my_remote"']
+    url = /home/glebov-da/Diploma/my_remote
