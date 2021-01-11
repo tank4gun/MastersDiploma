@@ -1,3 +1,5 @@
 outs:
-- md5: 7acd99dd058cbe64f8504a58ff40d91e.dir
+- md5: 645f06672aed41ad12da7a38a4db29de.dir
   path: src
+  size: 1543
+  nfiles: 1
