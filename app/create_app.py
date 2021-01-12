@@ -19,5 +19,5 @@ if __name__ == '__main__':
     parser.add_argument('-deploy_version')
     args = parser.parse_args()
     app = create_app(args.deploy_version)
-    app.run()
+    app.run(host="35.246.93.93")
 
