@@ -1,5 +1,5 @@
 {
-  "group": "defaultGroup",
+  "group": "defaultsGroup",
   "name": "ModelsUpdate",
   "display_order_weight": -1.0,
   "label_template": "${COUNT}",
