@@ -1,6 +1,6 @@
 {
-  "group": "defaultsGroup",
-  "name": "ModelsUpdate",
+  "group": "defaultGroup",
+  "name": "ModelUpdate",
   "display_order_weight": -1.0,
   "label_template": "${COUNT}",
   "lock_behavior": "none",
