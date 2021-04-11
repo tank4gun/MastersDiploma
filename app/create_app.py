@@ -1,7 +1,10 @@
+import logging
+
 from flask import Flask, url_for, request, render_template
 from markupsafe import escape
 from argparse import ArgumentParser
 
+logging.basicConfig(filename='record.log', level=logging.DEBUG, format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 
 app = Flask(__name__)
 from views import *
