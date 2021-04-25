@@ -37,7 +37,12 @@
       "jobs": [
         {
           "name": "GetCommit",
-          "environment_variables": [],
+          "environment_variables": [
+	    {
+              "name": "GDRIVE_CREDENTIALS_DATA",
+              "encrypted_value": "AES:pvnbkdFVF9r002dr11qsxA\u003d\u003d:hxDWx8mTU7YD9BNvdTEEQY3zMNxAmRTlnr4T2Ovjb2IsdcLGCnqWpD/FGGbq8kCoK4KxXcJe9NwJUhthg2GvnJ3Qd/tTAGmbHLQETRZPdI5keXyDfhsbazrU/xYfuzVVvgjT2BbJeN6nlVO9n6SXIdfuAjIzkwB25JUXaMEkKHuHUAOHCoLBQsFAcgfFzJ613XfX8LCETc4rVFYktJqg4/EH6R8muh7glFj/6soPKD2S6F0h4FcjDsQjkl01BVmipc9TMz7osWq8BV8vR8b/x+z50DqX8EoKMfaK08+jINhtxm9+HKTnMdW6lgV0JxCc7ZXocvKEPytLtILv5WJKJwsUhlwr+wpqn0uXMvtMJHy6O+dND0oRYSD4Xr3eKfIA6OdUVEN7Pz13H/kDTI6GWRn6+M68hX61+jDJk9DcJUtuKyUU08EI8StTWDeCPb4Yc2zO8X00vCix3TIRa3QwUJhVwEI+B80LNpQWiGeAkdz0wGzHRwBDj5RnLt5q9PVcISFIbAMdlvKdSwhoVBufZq8XxCmp0ruLbc0u5Q/LrOYyNtyB6SnM6kTIX9gCo2TlOXH5mrf5LPhVt/qPC+qyBC7H96yAk1wfgNlr0RVEzBIF5JJcRsRdNA3W4KKr/dSFi8cDxOqOQB80NVEynWcMTYVELoGLIBGaRU4LnO8iblYUnNLF4qQuA8I1hs8QpFDJSTMTYwtQ2JONn2HidyC3q6rZHBmeei/6i970OppQPwapWQgMBoXEFdaNm1GTY0luki6LSl4IhKyyiBUefefoo8wGiesopivL2Zqj7iNbwYbtO8UV2k1dOW/AsmNJen317qAD7Fw5jXjfN6fwfdqalOGiHEiLyr0m58NhcrrH0cT2X14QZ7B7HPHto/6YvdVnbag36CzsEGi6PGCIJualCUdkOCoklbpoMBNYnreR/hUBGZFIo9dJ4klGIpzz2ncGMBXmju0OF3gLeKiZ6TeZwmgj60pbUkkyNA6KRHd4kGl0GfcJv2BZQLM4sU1x+lG3u+WAqprDoegKGp2S6fUH9GnBuhn0Gf0P08bN8sU4a+amfWJH0UXdTtZTgRGxnkyvdkZofLypW2y3cJxbb5l3SGmDgWhL0iQHWYGXSBmffDHYeoBmJpK6uixJGNvT3p7I/zBHGzv251RgRavKAM+JXF+Q7lc1+hUB3wL0jXSiL99pJA8qkFRLvWUrnl5E9/WD2QSgf6drGKW+G7lcNR9Qa63/I1uc6aF5sBWF8J1HeMbXH2AyvlxLY9j5TXtxNb6Vf5bxPVy15mxbkd5e6GPiwHr4SmvgySXmKOtLokzPGbGLWGZkzyLueqDV2SF5db3Gs5Vmo2dpB6s8C4i6CkI/tgvqOKibW6lfU++H1MaEccFPMU34I+ycT9DrGn63Q+lD5zP54XKaJ/mFU8QqqVQEoBpBuzF/sBLo6K8ki/vVjJ4zDOI2eRf2BlzlWvPV+BAZpvJD8cgGeh93H2ElKmNEjtWqLZZEGGROfh+cjY91XgGlD0zeYvNY1ympYylMcreiUmb48KGv7ei82IuWkIteCKeCTNIMiVWp3k022wclO5gey15mhsvzt+kNqfFt1JzecpBbzXaPhn8xeP/KFITZGC3lNbGeTdUX7lGpzQnPEgOOluIAanKphUvGyJEWXKYB"
+            }
+	  ],
           "tabs": [],
           "resources": [],
           "artifacts": [],
