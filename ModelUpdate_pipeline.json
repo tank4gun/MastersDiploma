@@ -63,16 +63,6 @@
               "timeout": -1.0,
               "arguments": [
                 "-c",
-                "conda env list"
-              ],
-              "run_if": "passed",
-              "type": "exec"
-            },
-            {
-              "command": "/bin/bash",
-              "timeout": -1.0,
-              "arguments": [
-                "-c",
                 "pip install mleap"
               ],
               "run_if": "passed",
