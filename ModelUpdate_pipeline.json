@@ -4,7 +4,12 @@
   "display_order_weight": -1.0,
   "label_template": "${COUNT}",
   "lock_behavior": "none",
-  "environment_variables": [],
+  "environment_variables": [
+  {
+      "name": "GITHUB",
+      "encrypted_value": "AES:x5eWQERUuvRGFBA70OZIag\u003d\u003d:aTih5O/WpWF2g9jtL0L3ag\u003d\u003d"
+  }
+  ],
   "parameters": [],
   "materials": [
     {
