@@ -33,7 +33,16 @@
         "roles": [],
         "allow_only_on_success": false
       },
-      "environment_variables": [],
+      "environment_variables": [
+	    {
+              "name": "GDRIVE_CREDENTIALS_DATA",
+              "encrypted_value": "AES:Uq+rU93eaHGhhmsvkeYisA\u003d\u003d:v/tIXFDXsp/YLCpI2Hxkz1A/i9P3nRY8MOWdLf5Eb9oAEEf9VHSyk2QErnROsxBx5jYhN7Xl9TwEkV0D6F8Ys9cvhB8uhfF//C0quriNK7OLmuOtZMer8n3kH0AJigw6+eHRznU/FROYaEdiApRFxbo0F6TBZIpnd5Y8gS9QME80wE/egq2CCeCEJzAxzUq5REVM2NqbGcUqs5+p60ip9BftAV7wdVx/TvdZJoy9nTwaMV0rcMiho2ElNVBE63Zrb6DBez4uh/D1wuC4P8BB/oVgiTuLo+67iWGhftGOfj8DCvSCxlZ/NRT9LdWnynQ4TLttTlWXHHpTvAARHOZAtpaCh8ZxdEe+lA0bG+pcMfbOkJ4e4IqJOVqLvAJ4Lb3rYJ+wDhVmckmY3+iqZfLZetpzOkgdJnqD9udCgXyaEbalvuECs1lCTcXw/h01tlANo5CSlrLTRZiOmuaARpqn6j2S8+82PecHSXzjLp5E9CFIwAl40MFHdF0GxT4jsOdsdnN7mIf0WYBlBgO87UgiEpg+QLb2cfh35a3f+YZd7CD2V2ssoro8/sjaE8cUC2p2ONhlj0nJb1neY9nvdqoWQf62BormgQIr1Dr11BQhe3/RneoDFXUNimRqtpGgQGa24VFNPO9jFCH05Qfps0vSyuIsudEUB0hzBF+4mSLgFnpCGJsnanG/hEgIc7Z5+JA8rYEwnlSnEwWh8LhxXKDY0TU1i4dSVwebgZDpMo//nJg5DP0dOHuRwyok4x8jDm9ym5+lilczm0b0Fek7/2L/VHxFsiZdebNwNWDSWtF6YujdcR7ARVfIB0wv5sv4TTrLMiUiE1IPMyQlNZZt1DVmVUzcy+irwS2S+Zf9ZJGlvVQ7h5eidkDSkZ15QdUOMeHMK0FE3f+bxCClh50ewcKLUEe8ZVV/dNPhhZMEnquyaU0i8DGHEYIDfO3tDeI41dKXzKcJHrdQq/QaGOrKIq9A8TTEhqCmhK9uAMtlgnMGXhv4GjtVdoaDtG0mfKp13KnJI7nP2gn3Xg5CGkWeFY+jPrR8AT03czP3iaAO2hYyGzms65fzUz6YgOPX84RZDux2fkLDNVIobob5By7YiCT/djKYcXAdzAhlFfzsUGJspN1sxEe0y9nueTvDYhUIAKUyrY7ejAtFbZx7U0ik8gJ23m0t33OYeGxf8NkbIn6YGkyMhN2yQw5p2KjFcLgBJXrazbCEU/YexQtkHVMtYCPkXkHJoVtm653+hzVn+mPLm27p3YhjCLCjglTY2Yz6uEYV2EQI/tB4fZJSDBvPeZxmZ1TQfqV419n/umHKidH0M0gBPV8Oh/yt39ZCpSsd2G9GRK69Z0jZlOzNLEHj+y3agDkiUTjATeedf+7muiMZ7qXv/psAzT620uq3DXGdk+EBTMZXB+PTeUnfq6OHpipOxxUU6ryjX2tpevWNr0YcRCwR1yNqu5X9CouTHUCvQ34Yf995/DLm2wstBw5T4X5ooU97IiFhGQe7kN30EZzcBGD7OjA1KMfZNB1nYmvvUBjmP3aMTyAPEY+kApGnvO94J1yX/HQHKBCpQ790yjihwNwdFJmdMQxwFHxjRV599bZ26gD0hyNC5HOmOYgObDRZeUsDb1W2viKPKuuHbiA7dHYxaVyCD4z7C+HuvWOqWarPnUWdG4e6B2ygwvMrvk1LXq4WEbSWlE0dVbFSX/odOIjG+ERiwoBJyiDm67jc/BYK/5b92F/COBooulcl0kuli9gA6nakTk9snf8tGa7HOWakHHf6IugbplBkY6LZpGkez6DhK/GSC82F6N1fMMBUShhDT19g76LxxPi9gjzjgE0\u003d"
+	    },
+	    {
+		"name": "PATH",
+          	"value": "/home/glebov_da/anaconda3/envs/python_for_mleap/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/glebov_da/anaconda3/condabin"
+	    }
+      ],
       "jobs": [
         {
           "name": "GetCommit",
