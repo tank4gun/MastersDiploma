@@ -21,8 +21,8 @@ def create_app(deploy_version=None):
     timestamps = [path.split("_")[1].split(".")[0] for path in os.listdir("./../data") if path.startswith("Linear")]
     candidates = []
     for timestamp in timestamps:
-        if os.path.exists("../data/Linear-regression_{version}.node/R2.txt"):
-            with open("../data/Linear-regression_{version}.node/R2.txt", "r") as r2_file:
+        if os.path.exists("../data/Linear-regression_{version}.node/R2.txt".format(version=timestamp)):
+            with open("../data/Linear-regression_{version}.node/R2.txt".format(version=timestamp), "r") as r2_file:
                 candidates.append((float(r2_file.readline()), timestamp))
     max_candidate = candidates[0]
     for candidate in candidates:
