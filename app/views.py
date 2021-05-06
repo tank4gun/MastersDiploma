@@ -17,7 +17,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 input_names = ["age", "sex", "bmi", "bp", "s1", "s2", "s3", "s4", "s5", "s6"]
 
 
-@app.route("/", methods=["POST"])
+@app.route("/", methods=["POST", "GET"])
 def index():
     return render_template("input_screen.html", deploy_version=app.config["deploy_version"])
 
