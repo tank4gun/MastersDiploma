@@ -17,12 +17,12 @@ from sklearn.metrics import mean_squared_error, r2_score
 input_names = ["age", "sex", "bmi", "bp", "s1", "s2", "s3", "s4", "s5", "s6"]
 
 
-@app.route('/')
+@app.route("/", methods=["POST"])
 def index():
-    return render_template('input_screen.html')
+    return render_template("input_screen.html", deploy_version=app.config["deploy_version"])
 
 
-@app.route("/send_data", methods=['POST'])
+@app.route("/send_data", methods=["POST"])
 def send_data():
     app.logger.debug("Got request data %s", request.form)
     new_regr = LinearRegression().deserialize_from_bundle("../data", "Linear-regression_{}.node".format(app.config['deploy_version']))
@@ -41,5 +41,5 @@ def send_data():
             prediction=prediction,
         )
     )
-    return "Model prediction is {prediction}".format(prediction=prediction)
+    return render_template("result_screen.html", model_prediction=prediction)
     
