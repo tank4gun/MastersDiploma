@@ -18,7 +18,17 @@ from views import *
 
 
 def create_app(deploy_version=None):
-    app.config['deploy_version'] = deploy_version or os.getenv("DEPLOY_VERSION")
+    timestamps = [path.split("_")[1].split(".")[0] for path in os.listdir("./../data") if path.startswith("Linear")]
+    candidates = []
+    for timestamp in timestamps:
+        if os.path.exists("../data/Linear-regression_{version}.node/R2.txt"):
+            with open("../data/Linear-regression_{version}.node/R2.txt", "r") as r2_file:
+                candidates.append((float(r2_file.readline()), timestamp))
+    max_candidate = candidates[0]
+    for candidate in candidates:
+        if max_candidate[0] <= candidate[0]:
+            max_candidate = candidate
+    app.config['deploy_version'] = deploy_version or max_candidate[1]
     print('Passed item: ', app.config['deploy_version'])
     return app
 
