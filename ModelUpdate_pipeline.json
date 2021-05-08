@@ -282,7 +282,8 @@
               "timeout": -1.0,
               "arguments": [
                 "-c",
-                "sudo kill -9 `sudo lsof -t -i:5100`"
+                "flask_pid\u003d$(sudo lsof -t -i:5100); echo $flask_pid; if [ ! -z \"$flask_pid\" ] ; then sudo kill -9 $flask_pid; fi",
+                ""
               ],
               "run_if": "passed",
               "type": "exec"
