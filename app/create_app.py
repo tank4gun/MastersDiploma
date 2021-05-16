@@ -26,7 +26,7 @@ def create_app(deploy_version=None):
                 candidates.append((float(r2_file.readline()), timestamp))
     max_candidate = candidates[0]
     for candidate in candidates:
-        if max_candidate[0] <= candidate[0]:
+        if candidate[0] <= max_candidate[0]:
             max_candidate = candidate
     app.config['deploy_version'] = deploy_version or max_candidate[1]
     print('Passed item: ', app.config['deploy_version'])
