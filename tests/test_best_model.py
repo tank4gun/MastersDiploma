@@ -18,7 +18,7 @@ def get_best_model():
                 candidates.append((float(r2_file.readline()), timestamp))
     max_candidate = candidates[0]
     for candidate in candidates:
-        if max_candidate[0] <= candidate[0]:
+        if max_candidate[0] <= candidate[0] and int(max_candidate[1]) < int(candidate[1]):
             max_candidate = candidate
     return max_candidate[1]
 
