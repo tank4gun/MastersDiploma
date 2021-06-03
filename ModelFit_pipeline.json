@@ -263,6 +263,16 @@
               "timeout": -1.0,
               "arguments": [
                 "-c",
+                "git pull https://tank4gun:${GITHUB}@github.com/tank4gun/MastersDiploma.git"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
                 "dvc pull"
               ],
               "run_if": "passed",
@@ -306,6 +316,16 @@
               "arguments": [
                 "-c",
                 "git commit -m \u0027Add new best_model_version\u0027"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "git push https://tank4gun:${GITHUB}@github.com/tank4gun/MastersDiploma.git"
               ],
               "run_if": "passed",
               "type": "exec"
