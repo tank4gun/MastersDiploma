@@ -57,7 +57,7 @@ def test_model_is_better_than_border(model):
 
 
 def save_best_model_tested(best_model_version):
-    with open("best_model_version.txt", "w") as model_version_file:
+    with open("../best_model_version.txt", "w") as model_version_file:
         model_version_file.write(best_model_version)
 
 
