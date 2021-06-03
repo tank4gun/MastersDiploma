@@ -21,12 +21,14 @@
   "parameters": [],
   "materials": [
     {
-      "url": "https://github.com/tank4gun/MastersDiploma.git",
+      "url": "https://github.com/tank4gun/MastersDiploma",
       "branch": "master",
       "shallow_clone": false,
       "filter": {
         "ignore": [],
-        "includes": []
+        "includes": [
+	  "data.dvc"
+	]
       },
       "auto_update": true,
       "username": "tank4gun",
