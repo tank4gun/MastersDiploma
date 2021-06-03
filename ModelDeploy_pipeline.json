@@ -27,7 +27,7 @@
       "filter": {
         "ignore": [],
         "includes": [
-	  "data.dvc"
+	  "best_model_version.txt"
 	]
       },
       "auto_update": true,

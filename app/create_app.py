@@ -18,6 +18,10 @@ from views import *
 
 
 def create_app(deploy_version=None):
+    with open("../best_model_version.txt", "r") as model_version_file:
+        best_model_version = model_version_file.readline()
+
+
     timestamps = [path.split("_")[1].split(".")[0] for path in os.listdir("./../data") if path.startswith("Linear")]
     candidates = []
     for timestamp in timestamps:
@@ -32,7 +36,7 @@ def create_app(deploy_version=None):
         check_file.write("Deploy_version {}".format(deploy_version))
         check_file.write("Candidates {}".format(candidates))
         check_file.write("Max_candidate {}".format(max_candidate))
-    app.config['deploy_version'] = deploy_version or max_candidate[1]
+    app.config['deploy_version'] = deploy_version or best_model_version  # max_candidate[1]
     print('Passed item: ', app.config['deploy_version'])
     return app
 

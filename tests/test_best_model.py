@@ -56,11 +56,17 @@ def test_model_is_better_than_border(model):
     assert model_score > 0.51, "Got too low best model score: %s" % model_score
 
 
+def save_best_model_tested(best_model_version):
+    with open("best_model_version.txt", "w") as model_version_file:
+        model_version_file.write(best_model_version)
+
+
 def test_best_model():
     best_model_ts = get_best_model()
     best_model = LinearRegression().deserialize_from_bundle("../data", "Linear-regression_{}.node".format(best_model_ts))
     test_correct_output_format(best_model, best_model_ts, [59, 2, 32.1, 101, 157, 93.2, 38, 4, 4.8598, 87])
     test_model_is_better_than_border(best_model)
+    save_best_model_tested(best_model_ts)
 
 
 test_best_model()
