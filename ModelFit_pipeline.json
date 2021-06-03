@@ -32,6 +32,13 @@
       "username": "tank4gun",
       "encrypted_password": "AES:T0BVBeO9yjG1zL3ORiamig\u003d\u003d:pQUE07Rwmnmf4Rt8cvNmzg\u003d\u003d",
       "type": "git"
+    },
+    {
+      "pipeline": "ModelsUpdate",
+      "stage": "DeployApp",
+      "ignore_for_scheduling": false,
+      "name": "ModelsUpdate",
+      "type": "dependency"
     }
   ],
   "stages": [
