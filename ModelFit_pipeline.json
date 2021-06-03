@@ -289,6 +289,26 @@
               ],
               "run_if": "passed",
               "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "git add best_model_version.txt"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "git commit -m \u0027Add new best_model_version\u0027"
+              ],
+              "run_if": "passed",
+              "type": "exec"
             }
           ]
         }
