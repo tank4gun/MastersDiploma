@@ -315,7 +315,7 @@
               "timeout": -1.0,
               "arguments": [
                 "-c",
-                "git commit -m \u0027Add new best_model_version\u0027"
+                "git commit -m \u0027Add new best_model_version\u0027 --allow-empty"
               ],
               "run_if": "passed",
               "type": "exec"
