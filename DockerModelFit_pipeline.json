@@ -1,0 +1,330 @@
+{
+  "group": "defaultGroup",
+  "name": "ModelFit",
+  "display_order_weight": -1.0,
+  "label_template": "${COUNT}",
+  "lock_behavior": "none",
+  "environment_variables": [
+    {
+      "name": "GITHUB",
+      "encrypted_value": "AES:1M4Bnzmv/1Q26MVJ4eIEHA\u003d\u003d:sFZ5ltdYIapsolskyxXsSA\u003d\u003d" 
+    },
+    {
+      "name": "PATH",
+      "value": "/home/glebov_da/anaconda3/envs/python_for_mleap/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/glebov_da/anaconda3/condabin"
+    }
+  ],
+  "parameters": [],
+  "materials": [
+    {
+      "url": "https://github.com/tank4gun/MastersDiploma.git",
+      "branch": "master",
+      "shallow_clone": false,
+      "filter": {
+        "ignore": [],
+        "includes": []
+      },
+      "auto_update": true,
+      "username": "tank4gun",
+      "encrypted_password": "AES:RGeRCyHtWTIovb7zWfJqxg\u003d\u003d:UkWPZmsLQsubupDNBbatdg\u003d\u003d",
+      "name": "git-repo",
+      "type": "git"
+    }
+  ],
+  "stages": [
+    {
+      "name": "ModelTraining",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "approval": {
+        "type": "manual",
+        "users": [],
+        "roles": [],
+        "allow_only_on_success": false
+      },
+      "environment_variables": [
+        {
+          "name": "PATH",
+          "value": "/home/glebov_da/anaconda3/envs/python_for_mleap/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/glebov_da/anaconda3/condabin"
+        }
+      ],
+      "jobs": [
+        {
+          "name": "GetCommit",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "timeout": 0.0,
+          "tasks": [
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "dvc pull"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "conda env list"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "pip install mleap"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "working_directory": "src/",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "python train.py"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "dvc status"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "dvc add data"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "git add data.dvc"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "git add train_result.txt"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "git commit -m \u0027Add new model weights\u0027"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "dvc push"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "git push https://tank4gun:${GITHUB}@github.com/tank4gun/MastersDiploma.git"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Monitoring",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "approval": {
+        "type": "success",
+        "users": [],
+        "roles": [],
+        "allow_only_on_success": false
+      },
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "MonitoringStart",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "timeout": 0.0,
+          "tasks": [
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "sudo service td-agent restart"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "sudo service elasticsearch restart"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "sudo service kibana restart"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Testing",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "approval": {
+        "type": "success",
+        "users": [],
+        "roles": [],
+        "allow_only_on_success": true
+      },
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "Test",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "timeout": 0.0,
+          "tasks": [
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "git pull https://tank4gun:${GITHUB}@github.com/tank4gun/MastersDiploma.git"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "dvc pull"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "working_directory": "tests/",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "python3 test_input_dataset.py"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "working_directory": "tests/",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "python3 test_best_model.py"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "git add best_model_version.txt"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "git commit -m \u0027Add new best_model_version\u0027 --allow-empty"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "git push https://tank4gun:${GITHUB}@github.com/tank4gun/MastersDiploma.git"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
