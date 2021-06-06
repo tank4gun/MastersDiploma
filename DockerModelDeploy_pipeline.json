@@ -1,0 +1,102 @@
+{
+  "group": "defaultGroup",
+  "name": "ModelDeploy",
+  "display_order_weight": -1.0,
+  "label_template": "${COUNT}",
+  "lock_behavior": "none",
+  "environment_variables": [],
+  "parameters": [],
+  "materials": [
+    {
+      "url": "https://github.com/tank4gun/MastersDiploma",
+      "branch": "master",
+      "shallow_clone": false,
+      "filter": {
+        "ignore": [],
+        "includes": [
+	  "best_model_version.txt"
+	]
+      },
+      "auto_update": true,
+      "name": "git-repo-updated",
+      "type": "git"
+    },
+    {
+      "pipeline": "ModelFit",
+      "stage": "Testing",
+      "ignore_for_scheduling": false,
+      "name": "ModelFit",
+      "type": "dependency"
+    }
+  ],
+  "stages": [
+    {
+      "name": "DeployApp",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "approval": {
+        "type": "success",
+        "users": [],
+        "roles": [],
+        "allow_only_on_success": true
+      },
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "RunApp",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "timeout": 0.0,
+          "tasks": [
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "pip install gunicorn"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "dvc pull"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "flask_pid\u003d$(sudo lsof -t -i:5100); echo $flask_pid; if [ ! -z \"$flask_pid\" ] ; then sudo kill -9 $flask_pid; fi",
+                ""
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "command": "/bin/bash",
+              "working_directory": "app/",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "gunicorn \u0027create_app:create_app()\u0027  -b 0.0.0.0:5100 -D"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
