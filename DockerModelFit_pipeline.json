@@ -6,10 +6,6 @@
   "lock_behavior": "none",
   "environment_variables": [
     {
-      "name": "GITHUB",
-      "encrypted_value": "AES:1M4Bnzmv/1Q26MVJ4eIEHA\u003d\u003d:sFZ5ltdYIapsolskyxXsSA\u003d\u003d" 
-    },
-    {
       "name": "PATH",
       "value": "/home/glebov_da/anaconda3/envs/python_for_mleap/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/glebov_da/anaconda3/condabin"
     }
@@ -26,7 +22,6 @@
       },
       "auto_update": true,
       "username": "tank4gun",
-      "encrypted_password": "AES:RGeRCyHtWTIovb7zWfJqxg\u003d\u003d:UkWPZmsLQsubupDNBbatdg\u003d\u003d",
       "name": "git-repo",
       "type": "git"
     }
