@@ -194,7 +194,7 @@
               "timeout": -1.0,
               "arguments": [
                 "-c",
-                "python3 test_input_dataset.py"
+                "python test_input_dataset.py"
               ],
               "run_if": "passed",
               "type": "exec"
@@ -205,7 +205,7 @@
               "timeout": -1.0,
               "arguments": [
                 "-c",
-                "python3 test_best_model.py"
+                "python test_best_model.py"
               ],
               "run_if": "passed",
               "type": "exec"
