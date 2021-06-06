@@ -4,7 +4,17 @@
   "display_order_weight": -1.0,
   "label_template": "${COUNT}",
   "lock_behavior": "none",
-  "environment_variables": [],
+  "environment_variables": [
+  {
+      "name": "GITHUB",
+      "encrypted_value": ""
+    },
+    {
+              "name": "GDRIVE_CREDENTIALS_DATA",
+              "encrypted_value": ""
+	    }
+
+  ],
   "parameters": [],
   "materials": [
     {
