@@ -21,7 +21,6 @@
         "includes": []
       },
       "auto_update": true,
-      "username": "tank4gun",
       "name": "git-repo",
       "type": "git"
     }
